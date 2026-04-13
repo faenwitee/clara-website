@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yanting Fan</title>
+  <meta name="description" content="Yanting Fan personal website.">
+  <style>
+    :root {
+      --bg: #eaf6ff;
+      --bg-strong: #d8eeff;
+      --card: rgba(255, 255, 255, 0.72);
+      --text: #17324a;
+      --muted: #5f7c95;
+      --line: rgba(23, 50, 74, 0.12);
+      --button: #7ebce8;
+      --button-text: #10314b;
+      --shadow: 0 20px 50px rgba(80, 129, 169, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.9), transparent 30%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-strong) 100%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .card {
+      width: min(100%, 620px);
+      padding: 52px 38px;
+      border-radius: 28px;
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      box-shadow: var(--shadow);
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .eyebrow {
+      margin: 0 0 16px;
+      font-size: 0.82rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.8rem, 9vw, 4.8rem);
+      font-weight: 600;
+      line-height: 0.95;
+    }
+
+    p {
+      margin: 18px auto 0;
+      max-width: 28rem;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    .links {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .links a {
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.55);
+    }
+
+    .links a.primary {
+      background: var(--button);
+      border-color: transparent;
+      color: var(--button-text);
+    }
+
+    @media (max-width: 560px) {
+      .card {
+        padding: 40px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="eyebrow">Personal website</div>
+    <h1>Yanting Fan</h1>
+    <p>
+      Hi, I’m Yanting. This is my little corner of the internet.
+    </p>
+    <div class="links">
+      <a class="primary" href="mailto:yanting.fan@mail.utoronto.ca">Email</a>
+      <a href="https://github.com/faenwitee">GitHub</a>
+    </div>
+  </main>
+</body>
+</html>
