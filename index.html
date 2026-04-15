@@ -540,23 +540,23 @@
     document.querySelectorAll(".nav-links a").forEach(a => a.classList.remove("active"));
     document.getElementById(sectionId).classList.add("active");
     document.getElementById("nav-" + sectionId).classList.add("active");
+    window.scrollTo(0, 0);
   }
 
   function show(id) {
     const sectionId = validSections.includes(id) ? id : "home";
     setActiveSection(sectionId);
-    if (window.location.hash !== "#" + sectionId) {
-      window.location.hash = sectionId;
-    }
-    window.scrollTo(0, 0);
+    const path = sectionId === "home" ? "/" : "/" + sectionId;
+    history.pushState({ section: sectionId }, "", path);
   }
 
-  window.addEventListener("hashchange", () => {
-    setActiveSection(window.location.hash.slice(1));
-    window.scrollTo(0, 0);
+  window.addEventListener("popstate", (e) => {
+    const id = e.state?.section || "home";
+    setActiveSection(id);
   });
 
-  setActiveSection(window.location.hash.slice(1));
+  const initial = window.location.pathname.replace("/", "") || "home";
+  setActiveSection(initial);
 </script>
 </body>
 </html>
