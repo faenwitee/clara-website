@@ -826,7 +826,7 @@
   const faviconLight = "favicon.png?v=3";
   const faviconDark = "favicon-dark.png?v=1";
   const themeMeta = document.querySelector('meta[name="theme-color"]');
-  const iconLinks = [document.getElementById("site-favicon"), document.getElementById("site-shortcut-icon")].filter(Boolean);
+  const faviconIds = ["site-favicon", "site-shortcut-icon"];
   const systemThemeQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
   function setMenuOpen(isOpen) {
@@ -869,8 +869,15 @@
 
   function updateFavicon(theme) {
     const href = theme === "dark" ? faviconDark : faviconLight;
-    iconLinks.forEach(link => {
-      link.href = href;
+    faviconIds.forEach((id, index) => {
+      const existing = document.getElementById(id);
+      if (!existing) return;
+      const replacement = existing.cloneNode();
+      replacement.href = href;
+      replacement.id = id;
+      replacement.rel = index === 0 ? "icon" : "shortcut icon";
+      replacement.type = "image/png";
+      existing.parentNode.replaceChild(replacement, existing);
     });
   }
 
